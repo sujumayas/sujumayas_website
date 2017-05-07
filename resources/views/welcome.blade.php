@@ -85,10 +85,9 @@
         position: relative;
         z-index:999;
       }
-      @media screen and (max-width: 600px) {
-        .title{
+      @media (max-width: 600px) {
+        .title {
           font-size:40px;
-          max-width: 80%;
         } 
         hr, 
         .alerts,
