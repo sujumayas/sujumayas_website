@@ -85,6 +85,22 @@
         position: relative;
         z-index:999;
       }
+      @media screen and (max-width: 600px) {
+        .title{
+          font-size:40px;
+          max-width: 80%;
+        } 
+        hr, 
+        .alerts,
+        .fileUpload {
+          max-width: 80%;
+          margin:10px auto;
+        }
+        .buttons {
+          margin: 10px 0;
+        }
+      }
+      
 
     </style>
   </head>
@@ -121,7 +137,7 @@
           </div>
           {{-- Main Content --}}
           <hr>
-          <div>
+          <div class="buttons">
             {{-- <ui-autocomplete></ui-autocomplete> --}}
             <ui-button ref="sayhi" @click="openModal('myModal')">Say Hi</ui-button>
             <ui-button ref="warning" @click="showAlert1=!showAlert1">Activate Warning!</ui-button>
@@ -155,7 +171,7 @@
             {{-- <ui-tooltip></ui-tooltip> --}}
           </div>
           {{-- File Upload --}}
-          <div>
+          <div class="fileUpload">
             <br>
             <br>
             <ui-fileupload accept="image/*" name="file11" @change="onFile11Change">
