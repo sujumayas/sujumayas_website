@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <h1>Sujumayas</h1>
+                    Sujumayas
                 </div>
 
                 <div class="links">
