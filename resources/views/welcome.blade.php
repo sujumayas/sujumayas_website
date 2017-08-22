@@ -140,6 +140,8 @@
             {{-- <ui-autocomplete></ui-autocomplete> --}}
             <ui-button ref="sayhi" @click="openModal('myModal')">Say Hi</ui-button>
             <ui-button ref="warning" @click="showAlert1=!showAlert1">Activate Warning!</ui-button>
+            <ui-button ref="hionce" @click="saveIt()" v-show="!alreadySaved">Say Hi</ui-button>
+            <ui-button ref="hionce2" @click="saveIt()" v-show="alreadySaved">Already Saved</ui-button>
             {{-- <ui-calendar></ui-calendar> --}}
             {{-- <ui-checkbox></ui-checkbox> --}}
             {{-- <ui-checkbox-group></ui-checkbox-group> --}}

@@ -1,4 +1,5 @@
-
+import ClientJS from 'clientjs';
+require('./storage.js');
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49,11 +50,31 @@ Vue.component('ui-textbox', require('./vendor/src/UiTextbox.vue'));
 Vue.component('ui-toolbar', require('./vendor/src/UiToolbar.vue'));
 Vue.component('ui-tooltip', require('./vendor/src/UiTooltip.vue'));
 
+
 const app = new Vue({
     el: '#app',
     data: {
     	showAlert1: false,
     	file11PreviewImage: '',
+        alreadySaved: false,
+    },
+    mounted(){
+        this.saveIt();
+        var client = new ClientJS(); // Create A New Client Object
+        var os = client.getOS();
+        var browser = client.getBrowser();
+        console.log(os);
+        console.log(browser);
+        console.log(client.getCPU());
+        console.log(client.getDevice());
+        console.log(client.getEngine());
+        console.log(client.getResult());
+        console.log(client.setUA());
+        console.log(client.getUA());
+
+        // console.log(client);
+        console.log(clientInformation);     
+
     },
     methods: {
     	openModal(ref) {
@@ -64,6 +85,17 @@ const app = new Vue({
         },
         onFile11Change(files) {
             this.file11PreviewImage = URL.createObjectURL(files[0]);
+        },
+        saveIt() {
+            let a = todoStorage.fetch();
+            console.log(a);
+            if(a == '[]'){
+                todoStorage.save("hi");    
+            }else{
+                this.alreadySaved = true;
+                console.log("already saved");
+            }
+            
         }
     }
 });
